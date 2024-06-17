@@ -20,7 +20,7 @@ class Product extends Model
         return $this->morphOne(Image::class,'imageable');
     }
     public function scopeCategoria($query,$category_id){
-        if($category_id){
+        if($category_id && $category_id != 'selecione una opcion'){
             return $query->where('category_id',$category_id);
         }else {
             return $query;
