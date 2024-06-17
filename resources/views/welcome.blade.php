@@ -6,37 +6,66 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <div class="bg-gradient-to-br from-gray-500 to-purple-700">
   </head>
   <body>
-    <nav class="bg-white dark:bg-zinc-800 shadow-md">
+    <nav class="bg-purple-700 dark:bg-zinc-800 shadow-md">
   <div class="container mx-auto px-4 py-2 flex items-center justify-between">
     <div class="flex items-center space-x-4">
-      <a href="#" class="text-2xl font-bold text-black dark:text-white">CONDO Technologies</a>
-     {{-- @livewire('category/category-livewire') --}}
+      <a href="#" class="text-2xl font-bold text-white dark:text-white">CONDO Technologies</a>
+      {{-- @livewire('category-livewire') --}}
       <div class="relative">
-        <input type="text" placeholder="Buscar..." class="rounded-full pl-4 pr-10 py-2 bg-zinc-100 dark:bg-zinc-700 text-black dark:text-white focus:outline-none">
+        <input type="text" placeholder="Buscar..." class="rounded-full pl-4 pr-10 py-2 bg-zinc-100 dark:bg-zinc-700 text-white dark:text-white focus:outline-none">
         <button class="absolute right-0 top-0 mt-2 mr-2 bg-purple-600 text-white rounded-full p-2">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg xmlns="#" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M16.65 16.65A7.5 7.5 0 1116.65 2a7.5 7.5 0 010 15z" />
           </svg>
         </button>
       </div>
     </div>
     <div class="flex items-center space-x-4">
-      <a href="#" class="flex items-center text-black dark:text-white">
+        @if (Route::has('login'))
+                            <nav class="-mx-3 flex flex-1 justify-end">
+                                @auth
+                                    <a
+                                        href="{{ url('/dashboard') }}"
+                                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20]"
+                                    >
+                                        Dashboard
+                                    </a>
+                                @else
+                                    <a
+                                        href="{{ route('login') }}"
+                                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20]"
+                                    >
+                                        Log in
+                                    </a>
+
+                                    @if (Route::has('register'))
+                                        <a
+                                            href="{{ route('register') }}"
+                                            class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20]"
+                                        >
+                                            Register
+                                        </a>
+                                    @endif
+                                @endauth
+                            </nav>
+                        @endif
+      {{-- <a href="/login" class="flex items-center text-white dark:text-white">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
           </svg>
         <span class="ml-1">Entrar</span>
-      </a>
-      <a href="#" class="flex items-center text-black dark:text-white">
+      </a> --}}
+      <a href="#" class="flex items-center text-white dark:text-white">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
           </svg>
         <span class="ml-1">Favoritos</span>
       </a>
-      <a href="#" class="flex items-center text-black dark:text-white">
+      <a href="#" class="flex items-center text-yellow-300 dark:text-white">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
           </svg>
@@ -45,37 +74,28 @@
       </a>
     </div>
   </div>
-  <div class="bg-zinc-100 dark:bg-zinc-700">
-    <div class="container mx-auto px-4 py-2 flex space-x-4 text-black dark:text-white">
-      <a href="#" class="text-purple-600">Comprar todo</a>
-      <a href="#">Computadoras</a>
-      <a href="#">Tabletas</a>
-      <a href="#">Drones y cámaras</a>
-      <a href="#">Audio</a>
-      <a href="#">Celulares</a>
-      <a href="#">T.V. y cine en casa</a>
-      <a href="#">Tecnología portátil</a>
-      <a href="#">Oferta</a>
+  <div class="bg-gradient-to-br from-gray-600 to-gray-500">
+    <div class="container mx-auto px-4 py-2 flex space-x-4 text-white dark:text-white">
+      <a href="#" class="relative inline-block text-yellow-400 hover:text-white hover:underline">
+        <b>Comprar todo</b>
+        <div class="absolute bottom-0 left-0 w-full h-1 bg-white transform translate-y-2"></div>
+      </a>
+      <a href="#" class="relative inline-block hover:text-yellow-300 hover:underline">Computadoras</a>
+      <a href="#" class="relative inline-block hover:text-yellow-300 hover:underline">Tabletas</a>
+      <a href="#" class="relative inline-block hover:text-yellow-300 hover:underline">Drones y cámaras</a>
+      <a href="#" class="relative inline-block hover:text-yellow-300 hover:underline">Audio</a>
+      <a href="#" class="relative inline-block hover:text-yellow-300 hover:underline">Celulares</a>
+      <a href="#" class="relative inline-block hover:text-yellow-300 hover:underline">T.V. y cine en casa</a>
+      <a href="#" class="relative inline-block hover:text-yellow-300 hover:underline">Tecnología portátil</a>
+      <a href="#" class="relative inline-block hover:text-yellow-300 hover:underline">Oferta</a>
     </div>
   </div>
+
+
 </nav>
 
-
-{{-- Publicidad --}}
-      <div class="flex flex-col md:flex-row items-center bg-white dark:bg-zinc-900 p-6 shadow-lg">
-    <div class="md:w-1/2 text-center md:text-left">
-      <div class="bg-red-500 text-white inline-block px-3 py-1 rounded-full text-sm mb-4">Mejores precios</div>
-      <h1 class="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white mb-4">Súper precios en tus artículos favoritos</h1>
-      <p class="text-zinc-600 dark:text-zinc-300 mb-6">Gana más por tu dinero</p>
-      <button class="bg-purple-600 text-white px-6 py-3 rounded-full text-lg">Comprar ahora</button>
-    </div>
-    <div class="md:w-1/2 mt-6 md:mt-0">
-      <img src="img/car1.jpg" alt="Promotional Image" class="rounded-lg shadow-lg">
-    </div>
-  </div>
-
-  {{-- Carrousel --}}
-  <div class="w-full mx-auto">
+{{-- Carrousel --}}
+<div class="w-full mx-auto">
 
     <div id="default-carousel" class="relative" data-carousel="static">
         <!-- Carousel wrapper -->
@@ -113,47 +133,63 @@
                 <span class="hidden">Next</span>
             </span>
         </button>
-    </div>
+        </div>
 
     </div>
 {{-- Fin Carrousel --}}
 
-    <div class="bg-white dark:bg-zinc-800 p-6">
+{{-- Publicidad --}}
+      <div class="flex flex-col md:flex-row items-center bg-white dark:bg-zinc-900 p-6 shadow-lg">
+    <div class="md:w-1/2 text-center md:text-left">
+      <div class="bg-red-500 text-white inline-block px-3 py-1 rounded-full text-sm mb-4">Mejores precios</div>
+      <h1 class="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white mb-4">Súper precios en tus artículos favoritos</h1>
+      <p class="text-zinc-600 dark:text-zinc-300 mb-6">Gana más por tu dinero</p>
+      <button class="bg-purple-600 text-white px-6 py-3 rounded-full text-lg">Comprar ahora</button>
+    </div>
+    <div class="md:w-1/2 mt-6 md:mt-0 ">
+        <video src="vid/vid1.mp4" class="rounded-lg shadow-lg" autoplay muted loop></video>
+        <!-- <img src="img/car1.jpg" alt="Promotional Image" class="rounded-lg shadow-lg"> -->
+    </div>
+  </div>
+
+
+
+    <div class="bg-zinc-900 p-6 text-white">
   <h2 class="text-2xl font-bold text-center mb-6 dark:text-white">Más vendidos</h2>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
-    <div class="border p-4">
+    <div class="border rounded-lg p-4  bg-purple-100">
       <span class="bg-red-500 text-white px-2 py-1 text-xs font-bold">OFERTA</span>
-      <img src="img/car1.jpg" alt="Fitboot fitness con seguimiento del ritmo cardíaco" class="w-full h-48 object-contain my-4">
+      <img src="img/1.jpg" alt="Fitboot fitness con seguimiento del ritmo cardíaco" class="w-full h-48 object-contain my-4">
       <p class="text-zinc-700 dark:text-zinc-300">Fitboot fitness con seguimiento del ritmo cardíaco</p>
       <p class="text-red-500 line-through">$999.00</p>
       <p class="text-purple-500">$984.00</p>
     </div>
-    <div class="border p-4">
+    <div class="border rounded-lg p-4  bg-purple-100">
       <span class="bg-red-500 text-white px-2 py-1 text-xs font-bold">OFERTA</span>
       <img src="img/2.jpg" alt="JP Laptop para juegos de 15.6'' de 256GB" class="w-full h-48 object-contain my-4">
       <p class="text-zinc-700 dark:text-zinc-300">JP Laptop para juegos de 15.6'' de 256GB</p>
       <p class="text-red-500 line-through">$999.00</p>
       <p class="text-purple-500">$984.00</p>
     </div>
-    <div class="border p-4">
+    <div class="border rounded-lg p-4  bg-purple-100">
       <img src="img/3.jpg" alt="HKI Tech drone cuadricóptero con cámara y mando 360" class="w-full h-48 object-contain my-4">
       <p class="text-zinc-700 dark:text-zinc-300">HKI Tech drone cuadricóptero con cámara y mando 360</p>
       <p class="text-purple-500">$999.00</p>
     </div>
-    <div class="border p-4">
+    <div class="border rounded-lg p-4  bg-purple-100">
       <span class="bg-red-500 text-white px-2 py-1 text-xs font-bold">OFERTA</span>
       <img src="img/4.jpg" alt="Smartphone Z Pixel Max 128GB desbloqueado" class="w-full h-48 object-contain my-4">
       <p class="text-zinc-700 dark:text-zinc-300">Smartphone Z Pixel Max 128GB desbloqueado</p>
       <p class="text-red-500 line-through">$999.00</p>
       <p class="text-purple-500">$984.00</p>
     </div>
-    <div class="border p-4">
+    <div class="border rounded-lg p-4  bg-purple-100">
       <img src="img/5.jpg" alt="Audífonos inalámbricos con cancelación del ruido" class="w-full h-48 object-contain my-4">
       <p class="text-zinc-700 dark:text-zinc-300">Audífonos inalámbricos con cancelación del ruido</p>
       <p class="text-red-500 line-through">$999.00</p>
       <p class="text-purple-500">$984.00</p>
     </div>
-    <div class="border p-4">
+    <div class="border rounded-lg p-4  bg-purple-100">
       <img src="img/5.jpg" alt="Gafas de realidad virtual Safay GEN 2 de 256 GB con mandos táctiles" class="w-full h-48 object-contain my-4">
       <p class="text-zinc-700 dark:text-zinc-300">Gafas de realidad virtual Safay GEN 2 de 256 GB con mandos táctiles</p>
       <p class="text-purple-500">$999.00</p>
@@ -251,7 +287,7 @@
   </div>
 
   {{-- Footer --}}
-  <div class="bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 p-8">
+  <div class="bg-zinc-100 dark:bg-zinc-800 text-white dark:text-zinc-300 p-8 bg-gradient-to-br from-purple-900 to-purple-800">
     <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
       <div>
         <h3 class="font-semibold mb-4">Ubicación de tienda</h3>
