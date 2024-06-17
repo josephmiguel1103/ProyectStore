@@ -28,7 +28,7 @@
         />
     </div> --}}
 
-    <div class="grid  gap-2">
+    <div class="my-2 md:mr-2 md:mb-0 w-full">
         <x-native-select label="Selecciona la categoria" wire:model.live="form.category_id">
             <option>Seleccione opción</option>
             @foreach ($categories as $category)

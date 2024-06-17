@@ -6,12 +6,23 @@
     </x-slot>
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="flex products-center justify-between dark:text-gray-400 gap-4 mb-2">
-            <x-input icon="search" placeholder="Buscar registro" wire:model.live="search"/>
+            <div class="flex gap-2">
+                <x-input icon="search"  class="px-25" placeholder="Buscar registro" wire:model.live="search" />
+                <x-native-select  wire:model.live="b_cat">
+                    <option value="">seleccione una opcion</option>
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </x-native-select>
+                {{$b_cat}}
+            </div>
             <x-button wire:click="create()" spinner="create" icon="plus" primary label="Nuevo"/>
                 @if($isOpen)
                     @include('livewire.product-create')
                 @endif
+
         </div>
+
 
         <!--Tabla lista de products   -->
         <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">

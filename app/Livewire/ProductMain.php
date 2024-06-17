@@ -18,7 +18,7 @@ class ProductMain extends Component{
     public $position_id;
     public ?Product $Product;
     public ProductForm $form;
-    public $search;
+    public $search,$b_cat;
 
     // public function mount($id){
     //     $this->position_id=$id;
@@ -27,7 +27,9 @@ class ProductMain extends Component{
 
     public function render(){
    // $integrantes=Product::where('fullname','LIKE','%'.$this->search.'%')->latest('id')->paginate(10);
-         $products=Product::where('name','LIKE','%'.$this->search.'%')->latest('id')->paginate(10);
+         $products=Product::where('name','LIKE','%'.$this->search.'%')
+         ->Categoria($this->b_cat)
+         ->latest('id')->paginate(10);
          $categories=Category::all();
          $sizes=Size::all();
 
