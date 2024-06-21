@@ -10,8 +10,8 @@
             @csrf
 
             <div>
-                <x-label for="name" value="{{ __('Name') }}" />
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                <label for="name">Nombre</label>
+                <input type="text" id="name" name="name" autocomplete="name">
             </div>
 
             <div class="mt-4">
@@ -51,7 +51,7 @@
                     {{ __('Already registered?') }}
                 </a>
 
-                <x-button class="ms-4">
+                <x-button type="submit" class="ms-4">
                     {{ __('Register') }}
                 </x-button>
             </div>
