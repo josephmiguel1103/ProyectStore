@@ -1,11 +1,11 @@
 <div class="py-5">
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-600 leading-tight">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             categorias
         </h2>
     </x-slot>
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between dark:text-gray-400 gap-4 mb-2">
+        <div class="flex items-center justify-between gap-4 mb-2">
             <x-input icon="search" placeholder="Buscar registro" wire:model.live="search" />
             <x-button wire:click="create()" spinner="create" icon="plus" primary label="Nuevo" />
             @if ($isOpen)
@@ -25,7 +25,7 @@
                         <td scope="col" class="px-6 py-3 text-center">Opciones</td>
                     </tr>
                 </thead>
-                <tbody class="divide-y divide-gray-200 dark:text-gray-400">
+                <tbody class="divide-y divide-gray-200">
                     @foreach ($categorias as $categoria)
                         <tr class="text-sm font-medium text-gray-900">
                             <td class="px-6 py-4">
@@ -34,9 +34,9 @@
                                     {{ $categoria->id }}
                                 </span>
                             </td>
-                            <td class="px-6 py-4 dark:text-gray-200">{{ $categoria->name }}</td>
-                            <td class="px-6 py-4 dark:text-gray-200">{{ $categoria->description }}</td>
-                            <td class="px-6 py-4 dark:text-gray-200">
+                            <td class="px-6 py-4">{{ $categoria->name }}</td>
+                            <td class="px-6 py-4">{{ $categoria->description }}</td>
+                            <td class="px-6 py-4">
                                 @if ($categoria->image && $categoria->image->exists())
                                     <img src="{{ Storage::url($categoria->image->url) }}" alt="" width="30%">
                                 @else

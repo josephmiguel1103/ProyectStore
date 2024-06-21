@@ -1,11 +1,11 @@
 <div class="py-5">
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-600 leading-tight">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             Products
         </h2>
     </x-slot>
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="flex products-center justify-between dark:text-gray-400 gap-4 mb-2">
+        <div class="flex products-center justify-between gap-4 mb-2">
             <div class="flex gap-2">
                 <x-input icon="search"  class="px-25" placeholder="Buscar registro" wire:model.live="search" />
                 <x-native-select  wire:model.live="b_cat">
@@ -39,7 +39,7 @@
                   <td scope="col" class="px-6 py-3 text-center">Opciones</td>
                 </tr>
               </thead>
-              <tbody class="divide-y divide-gray-200 dark:text-gray-400">
+              <tbody class="divide-y divide-gray-200">
                 @foreach($products as $product)
 
                 <tr class="text-sm font-medium text-gray-900">
@@ -48,12 +48,12 @@
                       {{$product->id}}
                     </span>
                   </td>
-                  <td class="px-6 py-4 dark:text-gray-200">{{$product->name}}</td>
-                  <td class="px-6 py-4 dark:text-gray-200">{{$product->description}}</td>
-                  <td class="px-6 py-4 dark:text-gray-200">{{$product->price}}</td>
-                  <td class="px-6 py-4 dark:text-gray-200">{{$product->size ? $product->size->name : 'Sin categoría'}}</td>
-                  <td class="px-6 py-4 dark:text-gray-200">{{$product->stock}}</td>
-                  <td class="px-6 py-4 dark:text-gray-200">{{$product->category ? $product->category->name : 'Sin categoría'}}</td>
+                  <td class="px-6 py-4">{{$product->name}}</td>
+                  <td class="px-6 py-4">{{$product->description}}</td>
+                  <td class="px-6 py-4">{{$product->price}}</td>
+                  <td class="px-6 py-4">{{$product->size ? $product->size->name : 'Sin categoría'}}</td>
+                  <td class="px-6 py-4">{{$product->stock}}</td>
+                  <td class="px-6 py-4">{{$product->category ? $product->category->name : 'Sin categoría'}}</td>
                   <td class="px-6 py-4 text-right">
                     <x-button.circle wire:click="edit({{$product}})" primary icon="pencil" />
                     <x-button.circle negative icon="x" x-on:confirm="{

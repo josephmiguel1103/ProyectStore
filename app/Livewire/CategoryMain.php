@@ -6,6 +6,7 @@ use App\Livewire\Forms\CategoryForm;
 use App\Livewire\Forms\ImageForm;
 use App\Models\Category;
 use App\Models\Image;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
@@ -17,81 +18,86 @@ class CategoryMain extends Component
     use WithFileUploads;
     use WithPagination;
     use Actions;
-    public $isOpen=false;
-    public ?Category $Category;
+    public $isOpen = false;
+    public ?Category $category;
     public CategoryForm $form;
-    public $search;
-    public ?Image $Image;
-    public ImageForm $formImg;
+    public $search, $foto;
+
+
 
     public function render()
     {
-        $categorias=Category::where('name','LIKE','%'.$this->search.'%')->latest('id')->paginate(10);
+        $categorias = Category::where('name', 'LIKE', '%' . $this->search . '%')->latest('id')->paginate(10);
 
-       return view('livewire.Category-main',compact('categorias'));
+        return view('livewire.Category-main', compact('categorias'));
     }
 
 
-    public function create(){
-        $this->isOpen=true;
+    public function create()
+    {
+        $this->isOpen = true;
         $this->form->reset();
-       $this->formImg->reset();
-        $this->reset(['Category','Image']);
+
+        $this->reset(['Category', 'foto']);
         $this->resetValidation();
         //$this->form->mount($this->supplier_id);
     }
 
-    public function edit(Category $Category , Image $Image){
+    public function edit(Category $category)
+    {
         //dd($vehicle);
-        $this->Category=$Category;
-        $this->form->fill($Category);
-        $this->Image=$Image;
-        $this->formImg->fill($Image);
-        $this->isOpen=true;
+        $this->category = $category;
+        $this->form->fill($category);
+        if(isset($category->image->url)){
+            $this->foto=$category->image->url;
+        }else{
+            $this->foto='../../img/sinfoto.jpg';
+        }
+        $this->isOpen = true;
         $this->resetValidation();
     }
 
-    public function store(){
+    public function store()
+    {
         $this->validate();
-        if(!isset($this->Category->id)){
-            Category::create($this->form->all());
+        if (!isset($this->category->id)) {
+            $category = Category::create($this->form->all());
+            if ($this->foto) {
+                $url = $this->foto->store('categories', 'public');
+                $category->image()->create(['url' => $url]);
+            }
             $this->dialog()->success(
                 $title = 'Mensaje del sistema',
                 $description = 'Registro creado'
             );
-        }else{
-            $this->Category->update($this->form->all());
+        } else {
+            $this->category->update($this->form->all());
+            if (is_object($this->foto)) {
+                $url = $this->foto->store('categories', 'public');
+                if ($this->category->image) {
+                    Storage::delete($this->category->image->url);
+                    $this->category->image()->update(['url' => $url]);
+                } else {
+                $this->category->image()->create(['url' => $url]);
+            }
+            }
             $this->dialog()->success(
                 $title = 'Mensaje del sistema',
                 $description = 'Registro actualizado'
             );
         }
-        $this->validate();
-        $this->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
-
-        $filename = time() . '.' . $this->image->getClientOriginalExtension();
-        $path = $this->image->storeAs('public/categories', $filename);
-
-        $this->category->images()->create([
-            'url' => 'categories/' . $filename,
-            'imageable_id'=>$this->Category->id ,
-            'imageable_type'=> Category::class,
-        ]);
-
-
-
-
-        $this->reset(['isOpen', 'image']);
-        $this->form->reset();
+        $this->reset(['isOpen']);
     }
 
-    public function destroy(Category $Category){
-        $Category->delete();
+    public function destroy(Category $category)
+    {
+        $category->delete();
+        Storage::delete($category->image->url);
+        $category->image()->delete();
     }
 
-    public function updatingSearch(){
+    public function updatingSearch()
+    {
         $this->resetPage();
     }
 }
