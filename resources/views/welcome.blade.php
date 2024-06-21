@@ -7,10 +7,10 @@
     <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <script src="{{ asset('js/app.js') }}"></script>
-    <div class="bg-gradient-to-br from-gray-500 to-purple-700">
+    <div class="bg-gradient-to-br from-yellow-800 via-purple-600 to-yellow-500">
   </head>
   <body>
-    <nav class="bg-purple-700 dark:bg-zinc-800 shadow-md">
+    <nav class="bg-gradient-to-br from-yellow-800 via-purple-700 to-yellow-500">
   <div class="container mx-auto px-4 py-2 flex items-center justify-between">
     <div class="flex items-center space-x-4">
       <a href="#" class="text-2xl font-bold text-white dark:text-white">CONDO Technologies</a>
@@ -28,26 +28,20 @@
         @if (Route::has('login'))
                             <nav class="-mx-3 flex flex-1 justify-end">
                                 @auth
-                                    <a
-                                        href="{{ url('/dashboard') }}"
-                                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20]"
-                                    >
+                                    <a href="{{ url('/dashboard') }}"
+                                        class="rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:text-yellow-400 focus:outline-none focus-visible:ring-[#FF2D20]">
                                         Dashboard
                                     </a>
                                 @else
-                                    <a
-                                        href="{{ route('login') }}"
-                                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20]"
-                                    >
-                                        Log in
+                                    <a href="{{ route('login') }}"
+                                        class="rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:text-yellow-400 focus:outline-none focus-visible:ring-[#FF2D20]">
+                                        <b>Login</b>
                                     </a>
 
                                     @if (Route::has('register'))
-                                        <a
-                                            href="{{ route('register') }}"
-                                            class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20]"
-                                        >
-                                            Register
+                                        <a href="{{ route('register') }}"
+                                            class="rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:text-yellow-400 focus:outline-none focus-visible:ring-[#FF2D20]">
+                                            <b>Register</b>
                                         </a>
                                     @endif
                                 @endauth
@@ -74,7 +68,7 @@
       </a>
     </div>
   </div>
-  <div class="bg-gradient-to-br from-gray-600 to-gray-500">
+  <div class="bg-gradient-to-br from-gray-900 to-gray-500">
     <div class="container mx-auto px-4 py-2 flex space-x-4 text-white dark:text-white">
       <a href="#" class="relative inline-block text-yellow-400 hover:text-white hover:underline">
         <b>Comprar todo</b>
@@ -96,13 +90,11 @@
 
 {{-- Carrousel --}}
 <div class="w-full mx-auto">
-
     <div id="default-carousel" class="relative" data-carousel="static">
         <!-- Carousel wrapper -->
         <div class="overflow-hidden relative w-full h-80 sm:h-96 xl:h-[30rem] 2xl:h-[40rem] rounded-lg">
             <!-- Item 1 -->
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                {{-- <span class="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl dark:text-gray-800">First Slide</span> --}}
                 <img src="img/car2.jpeg" class="block w-full h-full object-cover" alt="...">
             </div>
             <!-- Item 2 -->
@@ -133,17 +125,29 @@
                 <span class="hidden">Next</span>
             </span>
         </button>
-        </div>
-
     </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const nextButton = document.querySelector('[data-carousel-next]');
+
+    function clickNextButton() {
+        nextButton.click();
+    }
+
+    setInterval(clickNextButton, 4000);
+});
+</script>
+
 {{-- Fin Carrousel --}}
 
 {{-- Publicidad --}}
-      <div class="flex flex-col md:flex-row items-center bg-white dark:bg-zinc-900 p-6 shadow-lg">
+      <div class="flex flex-col md:flex-row items-center bg-zinc-900 dark:bg-zinc-900 p-6 shadow-lg">
     <div class="md:w-1/2 text-center md:text-left">
       <div class="bg-red-500 text-white inline-block px-3 py-1 rounded-full text-sm mb-4">Mejores precios</div>
-      <h1 class="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white mb-4">Súper precios en tus artículos favoritos</h1>
-      <p class="text-zinc-600 dark:text-zinc-300 mb-6">Gana más por tu dinero</p>
+      <h1 class="text-3xl md:text-4xl font-bold text-white dark:text-white mb-4">Súper precios en tus artículos favoritos</h1>
+      <p class="text-zinc-100 dark:text-zinc-300 mb-6">Gana más por tu dinero</p>
       <button class="bg-purple-600 text-white px-6 py-3 rounded-full text-lg">Comprar ahora</button>
     </div>
     <div class="md:w-1/2 mt-6 md:mt-0 ">
@@ -154,7 +158,7 @@
 
 
 
-    <div class="bg-zinc-900 p-6 text-white">
+    <div class="p-6 text-white">
   <h2 class="text-2xl font-bold text-center mb-6 dark:text-white">Más vendidos</h2>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
     <div class="border rounded-lg p-4  bg-purple-100">
@@ -196,7 +200,7 @@
     </div>
   </div>
   <div class="text-center mt-6">
-    <button class="bg-purple-500 text-white py-2 px-4 rounded-full">Ver todo</button>
+    <button class="bg-purple-500 text-white hover:text-yellow-400 py-2 px-4 rounded-full">Ver todo</button>
   </div>
 </div>
 
@@ -209,31 +213,31 @@
         <div class="w-24 h-24 rounded-full bg-zinc-200 flex items-center justify-center">
           <img src="img/2.jpg" alt="Computadoras" class="rounded-full" />
         </div>
-        <p class="mt-2 text-center">Computadoras</p>
+        <p class="mt-2 text-center text-white">Computadoras</p>
       </div>
       <div class="flex flex-col items-center">
         <div class="w-24 h-24 rounded-full bg-zinc-200 flex items-center justify-center">
           <img src="img/4.jpg" alt="Celulares" class="rounded-full" />
         </div>
-        <p class="mt-2 text-center">Celulares</p>
+        <p class="mt-2 text-center text-white">Celulares</p>
       </div>
       <div class="flex flex-col items-center">
         <div class="w-24 h-24 rounded-full bg-zinc-200 flex items-center justify-center">
           <img src="img/3.jpg" alt="Drones y cámaras" class="rounded-full" />
         </div>
-        <p class="mt-2 text-center">Drones y cámaras</p>
+        <p class="mt-2 text-center text-white">Drones y cámaras</p>
       </div>
       <div class="flex flex-col items-center">
         <div class="w-24 h-24 rounded-full bg-purple-500 flex items-center justify-center">
           <img src="img/1.jpg" alt="Oferta" class="rounded-full" />
         </div>
-        <p class="mt-2 text-center">Oferta</p>
+        <p class="mt-2 text-center text-white">Oferta</p>
       </div>
       <div class="flex flex-col items-center">
         <div class="w-24 h-24 rounded-full bg-zinc-200 flex items-center justify-center">
           <img src="img/4.jpg" alt="Tabletas" class="rounded-full" />
         </div>
-        <p class="mt-2 text-center">Tabletas</p>
+        <p class="mt-2 text-center text-white">Tabletas</p>
       </div>
       <div class="flex flex-col items-center">
         <div class="w-24 h-24 rounded-full bg-black flex items-center justify-center">
@@ -245,30 +249,30 @@
         <div class="w-24 h-24 rounded-full bg-zinc-200 flex items-center justify-center">
           <img src="img/4.jpg" alt="T.V. y cine en casa" class="rounded-full" />
         </div>
-        <p class="mt-2 text-center">T.V. y cine en casa</p>
+        <p class="mt-2 text-center text-white">T.V. y cine en casa</p>
       </div>
       <div class="flex flex-col items-center">
         <div class="w-24 h-24 rounded-full bg-zinc-200 flex items-center justify-center">
           <img src="img/2.jpg" alt="Tecnología portátil" class="rounded-full" />
         </div>
-        <p class="mt-2 text-center">Tecnología portátil</p>
+        <p class="mt-2 text-center text-white">Tecnología portátil</p>
       </div>
       <div class="flex flex-col items-center">
         <div class="w-24 h-24 rounded-full bg-zinc-200 flex items-center justify-center">
           <img src="img/5.jpg" alt="Bocinas" class="rounded-full" />
         </div>
-        <p class="mt-2 text-center">Bocinas</p>
+        <p class="mt-2 text-center text-white">Bocinas</p>
       </div>
       <div class="flex flex-col items-center">
         <div class="w-24 h-24 rounded-full bg-zinc-200 flex items-center justify-center">
           <img src="img/6.jpg" alt="Audífonos" class="rounded-full" />
         </div>
-        <p class="mt-2 text-center">Audífonos</p>
+        <p class="mt-2 text-center text-white">Audífonos</p>
       </div>
     </div>
   </div>
 
-{{-- Mesa d ayuda --}}
+{{-- Mesaz de ayuda --}}
 <div class="flex flex-col md:flex-row items-center bg-zinc-900 text-white">
     <div class="p-8 md:w-1/2">
       <h2 class="text-2xl font-bold mb-4">¿Buscas ayuda? Ve a la página de Ayuda</h2>
