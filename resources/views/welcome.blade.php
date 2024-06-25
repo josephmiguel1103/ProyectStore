@@ -59,10 +59,10 @@
           </svg>
         <span class="ml-1">Favoritos</span>
       </a>
-      <a href="#" class="flex items-center text-yellow-300 dark:text-white">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
-          </svg>
+      <a href="{{url('carrito')}}" class="flex items-center text-yellow-300 dark:text-white hover:scale-110 transition duration-300 ease-in-out">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 hover:stroke-white hover:stroke-width-2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+        </svg>
 
         <span class="ml-1">0</span>
       </a>
@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function () {
 {{-- Fin Carrousel --}}
 
 {{-- Publicidad --}}
-      <div class="flex flex-col md:flex-row items-center bg-zinc-900 dark:bg-zinc-900 p-6 shadow-lg">
+      <div class="flex flex-col md:flex-row items-center bg-zinc-900 dark:bg-zinc-900 p-6 shadow-xl shadow-purple-500 shadow-opacity-75">
     <div class="md:w-1/2 text-center md:text-left">
       <div class="bg-red-500 text-white inline-block px-3 py-1 rounded-full text-sm mb-4">Mejores precios</div>
       <h1 class="text-3xl md:text-4xl font-bold text-white dark:text-white mb-4">Súper precios en tus artículos favoritos</h1>
@@ -161,46 +161,48 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="p-6 text-white">
   <h2 class="text-2xl font-bold text-center mb-6 dark:text-white">Más vendidos</h2>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
-    <div class="border rounded-lg p-4  bg-purple-100">
+    <div class="border rounded-lg p-4  bg-purple-100 shadow-xl shadow-purple-300 shadow-opacity-75">
       <span class="bg-red-500 text-white px-2 py-1 text-xs font-bold">OFERTA</span>
       <img src="img/1.jpg" alt="Fitboot fitness con seguimiento del ritmo cardíaco" class="w-full h-48 object-contain my-4">
       <p class="text-zinc-700 dark:text-zinc-300">Fitboot fitness con seguimiento del ritmo cardíaco</p>
       <p class="text-red-500 line-through">$999.00</p>
       <p class="text-purple-500">$984.00</p>
     </div>
-    <div class="border rounded-lg p-4  bg-purple-100">
+    <div class="border rounded-lg p-4  bg-purple-100 shadow-xl shadow-purple-300 shadow-opacity-75">
       <span class="bg-red-500 text-white px-2 py-1 text-xs font-bold">OFERTA</span>
       <img src="img/2.jpg" alt="JP Laptop para juegos de 15.6'' de 256GB" class="w-full h-48 object-contain my-4">
       <p class="text-zinc-700 dark:text-zinc-300">JP Laptop para juegos de 15.6'' de 256GB</p>
       <p class="text-red-500 line-through">$999.00</p>
       <p class="text-purple-500">$984.00</p>
     </div>
-    <div class="border rounded-lg p-4  bg-purple-100">
+    <div class="border rounded-lg p-4  bg-purple-100 shadow-xl shadow-purple-300 shadow-opacity-75">
       <img src="img/3.jpg" alt="HKI Tech drone cuadricóptero con cámara y mando 360" class="w-full h-48 object-contain my-4">
       <p class="text-zinc-700 dark:text-zinc-300">HKI Tech drone cuadricóptero con cámara y mando 360</p>
       <p class="text-purple-500">$999.00</p>
     </div>
-    <div class="border rounded-lg p-4  bg-purple-100">
+    <div class="border rounded-lg p-4  bg-purple-100 shadow-xl shadow-purple-300 shadow-opacity-75">
       <span class="bg-red-500 text-white px-2 py-1 text-xs font-bold">OFERTA</span>
       <img src="img/4.jpg" alt="Smartphone Z Pixel Max 128GB desbloqueado" class="w-full h-48 object-contain my-4">
       <p class="text-zinc-700 dark:text-zinc-300">Smartphone Z Pixel Max 128GB desbloqueado</p>
       <p class="text-red-500 line-through">$999.00</p>
       <p class="text-purple-500">$984.00</p>
     </div>
-    <div class="border rounded-lg p-4  bg-purple-100">
+    <div class="border rounded-lg p-4  bg-purple-100 shadow-xl shadow-purple-300 shadow-opacity-75">
       <img src="img/5.jpg" alt="Audífonos inalámbricos con cancelación del ruido" class="w-full h-48 object-contain my-4">
       <p class="text-zinc-700 dark:text-zinc-300">Audífonos inalámbricos con cancelación del ruido</p>
       <p class="text-red-500 line-through">$999.00</p>
       <p class="text-purple-500">$984.00</p>
     </div>
-    <div class="border rounded-lg p-4  bg-purple-100">
+    <div class="border rounded-lg p-4  bg-purple-100 shadow-xl shadow-purple-300 shadow-opacity-75">
       <img src="img/5.jpg" alt="Gafas de realidad virtual Safay GEN 2 de 256 GB con mandos táctiles" class="w-full h-48 object-contain my-4">
       <p class="text-zinc-700 dark:text-zinc-300">Gafas de realidad virtual Safay GEN 2 de 256 GB con mandos táctiles</p>
       <p class="text-purple-500">$999.00</p>
     </div>
   </div>
   <div class="text-center mt-6">
-    <button class="bg-purple-500 text-white hover:text-yellow-400 py-2 px-4 rounded-full">Ver todo</button>
+    <a href="{{url('vermas')}}">
+    <button class="bg-purple-500 text-white hover:text-yellow-400 py-2 px-4 rounded-full">Ver Más</button>
+    </a>
   </div>
 </div>
 
