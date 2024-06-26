@@ -1,60 +1,38 @@
-<x-guest-layout>
-    <x-authentication-card>
-        <x-slot name="logo">
-            <x-authentication-card-logo />
-        </x-slot>
+<html>
 
-        <x-validation-errors class="mb-4" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
 
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
-
-            <div>
-                <label for="name">Nombre</label>
-                <input type="text" id="name" name="name" autocomplete="name">
-            </div>
-
-            <div class="mt-4">
-                <x-label for="email" value="{{ __('Email') }}" />
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            </div>
-
-            <div class="mt-4">
-                <x-label for="password" value="{{ __('Password') }}" />
-                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
-            </div>
-
-            <div class="mt-4">
-                <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
-            </div>
-
-            @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                <div class="mt-4">
-                    <x-label for="terms">
-                        <div class="flex items-center">
-                            <x-checkbox name="terms" id="terms" required />
-
-                            <div class="ms-2">
-                                {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Terms of Service').'</a>',
-                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Privacy Policy').'</a>',
-                                ]) !!}
-                            </div>
-                        </div>
-                    </x-label>
+<body>
+    <div class="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-500 to-orange-500 p-4">
+        <div class="bg-white rounded-lg shadow-lg p-8 max-w-md w-full">
+            <h2 class="text-2xl font-bold mb-2">Registrarse</h2>
+            <p class="text-zinc-600 mb-6">Greetings on your return! We kindly request you to enter your details.</p>
+            <form action="/login" method="POST">
+                @csrf
+                <div class="mb-4">
+                    <label class="block text-zinc-700 mb-2" for="email">Email</label>
+                    <input class="w-full px-3 py-2 border rounded-lg" type="email" id="email" name="email"
+                        placeholder="pat@saturn.dev" required />
                 </div>
-            @endif
+                <div class="mb-4">
+                    <label class="block text-zinc-700 mb-2" for="password">Password</label>
+                    <input class="w-full px-3 py-2 border rounded-lg" type="password" id="password" name="password"
+                        placeholder="min 12 cars" required />
+                </div>
+                <div class="mb-4 flex items-center">
+                    <input type="checkbox" id="remember" name="remember" class="mr-2" />
+                    <label for="remember" class="text-zinc-700">Remember me</label>
+                </div>
+                <button
+                    type="submit" class="w-full bg-orange-500 text-white py-2 rounded-lg mb-4 hover:shadow-lg transition duration-300">Login</button>
+            </form>
+            <p class="text-center text-zinc-600">Already have an account? <a href="#" class="text-red-500">Register</a></p>
+        </div>
+    </div>
+</body>
 
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-button type="submit" class="ms-4">
-                    {{ __('Register') }}
-                </x-button>
-            </div>
-        </form>
-    </x-authentication-card>
-</x-guest-layout>
+</html>

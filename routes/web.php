@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::view('vermas','vermas');
+Route::view('carrito','carrito');
 
 Route::middleware([
     'auth:sanctum',
