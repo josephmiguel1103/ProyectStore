@@ -10,14 +10,7 @@
     <div class="my-2 md:mr-2 md:mb-0 w-full">
         <x-input wire:model="form.price" label="precio" />
     </div>
-    <div class="grid  gap-2">
-        <x-native-select label="Selecciona la talla" wire:model.live="form.size_id">
-            <option>Seleccione opción</option>
-            @foreach ($sizes as $size)
-                <option value="{{ $size->id }}">{{ $size->name }}</option>
-            @endforeach
-        </x-native-select>
-    </div>
+
     <div class="my-2 md:mr-2 md:mb-0 w-full">
         <x-input wire:model="form.stock" label="cantidad" />
     </div>

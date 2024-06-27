@@ -33,7 +33,6 @@
                   <td scope="col" class="px-6 py-3">name</td>
                   <td scope="col" class="px-6 py-3">description</td>
                   <td scope="col" class="px-6 py-3">price</td>
-                  <td scope="col" class="px-6 py-3">Size</td>
                   <td scope="col" class="px-6 py-3">Stock</td>
                   <td scope="col" class="px-6 py-3">Categoria</td>
                   <td scope="col" class="px-6 py-3 text-center">Opciones</td>
@@ -51,7 +50,6 @@
                   <td class="px-6 py-4">{{$product->name}}</td>
                   <td class="px-6 py-4">{{$product->description}}</td>
                   <td class="px-6 py-4">{{$product->price}}</td>
-                  <td class="px-6 py-4">{{$product->size ? $product->size->name : 'Sin categoría'}}</td>
                   <td class="px-6 py-4">{{$product->stock}}</td>
                   <td class="px-6 py-4">{{$product->category ? $product->category->name : 'Sin categoría'}}</td>
                   <td class="px-6 py-4 text-right">

@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-<<<<<<< HEAD
     protected $guarded=['id'];
 
     public function category(){
@@ -27,6 +26,5 @@ class Product extends Model
             return $query;
         }
     }
-=======
->>>>>>> 6703aa93b237a65c6d14633c5f9c33d5d4cf6140
+
 }

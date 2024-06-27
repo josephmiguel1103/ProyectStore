@@ -31,9 +31,9 @@ class ProductMain extends Component{
          ->Categoria($this->b_cat)
          ->latest('id')->paginate(10);
          $categories=Category::all();
-         $sizes=Size::all();
 
-        return view('livewire.Product-main',compact('categories','products','sizes'));
+
+        return view('livewire.Product-main',compact('categories','products'));
     }
 
     public function create(){

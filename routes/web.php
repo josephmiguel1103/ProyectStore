@@ -2,12 +2,13 @@
 
 use App\Livewire\CategoryMain;
 use App\Livewire\Dashboard\Main;
+use App\Livewire\IndexLivewire;
 use App\Livewire\ProductMain;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//  Route::get('/', function () {
+//     return view('welcome');
+// });
 Route::view('vermas','vermas');
 Route::view('carrito','carrito');
 
@@ -20,3 +21,5 @@ Route::middleware([
     Route::get('/productos',ProductMain::class)->name('productos');
     Route::get('/categorias',CategoryMain::class)->name('categorias');
 });
+
+Route::get('/',[IndexLivewire::class,'render'])->name('index');
