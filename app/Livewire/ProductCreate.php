@@ -4,10 +4,10 @@ namespace App\Livewire;
 
 use Livewire\Component;
 
-class CategoryCreate extends Component
+class ProductCreate extends Component
 {
     public function render()
     {
-        return view('livewire.category.category-create');
+        return view('livewire.product.Product-create');
     }
 }

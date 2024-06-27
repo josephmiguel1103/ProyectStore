@@ -29,7 +29,7 @@ class CategoryMain extends Component
     {
         $categorias = Category::where('name', 'LIKE', '%' . $this->search . '%')->latest('id')->paginate(10);
 
-        return view('livewire.Category-main', compact('categorias'));
+        return view('livewire.category.Category-main', compact('categorias'));
     }
 
 

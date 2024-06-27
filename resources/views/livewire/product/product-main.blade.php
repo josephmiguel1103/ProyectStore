@@ -18,7 +18,7 @@
             </div>
             <x-button wire:click="create()" spinner="create" icon="plus" primary label="Nuevo"/>
                 @if($isOpen)
-                    @include('livewire.product-create')
+                    @include('livewire.product.product-create')
                 @endif
 
         </div>

@@ -92,7 +92,7 @@
             @foreach ($products as $product)
                 <div class="border rounded-lg p-4  bg-purple-100 shadow-xl shadow-purple-300 shadow-opacity-75">
                     <span class="bg-red-500 text-white px-2 py-1 text-xs font-bold">OFERTA</span>
-                    <img src="{{ Storage::url($product->image->url) }}" alt="">
+                    <img src="{{ Storage::url($product->image->url) }}" alt=""
                     class="w-full h-48 object-contain my-4">
                     <p class="text-zinc-700 dark:text-zinc-300">{{ $product->description }}</p>
                     <p class="text-red-500 line-through">{{ $product->price }}</p>

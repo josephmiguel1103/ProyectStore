@@ -33,7 +33,7 @@ class ProductMain extends Component{
          $categories=Category::all();
 
 
-        return view('livewire.Product-main',compact('categories','products'));
+        return view('livewire.product.Product-main',compact('categories','products'));
     }
 
     public function create(){

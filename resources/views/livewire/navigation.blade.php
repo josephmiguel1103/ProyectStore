@@ -1,7 +1,7 @@
 <nav class="bg-gradient-to-br from-yellow-800 via-purple-700 to-yellow-500">
     <div class="container mx-auto px-4 py-2 flex items-center justify-between">
       <div class="flex items-center space-x-4">
-        <a href="#" class="text-2xl font-bold text-white dark:text-white">CONDO Technologies</a>
+        <a href="#" class="text-2xl font-bold text-white dark:text-white">Ascuña Technologies</a>
         {{-- @livewire('category-livewire') --}}
         <div class="relative">
           <input type="text" placeholder="Buscar..." class="rounded-full pl-4 pr-10 py-2 bg-zinc-100 dark:bg-zinc-700 text-white dark:text-white focus:outline-none">
