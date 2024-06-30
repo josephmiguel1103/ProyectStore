@@ -24,5 +24,17 @@ class UserSeeder extends Seeder
             'email'=>'harry.ascuna@upeu.edu.pe',
             'password'=>bcrypt('12345678')
         ]);
+
+        User::factory()->create([
+            'name' => 'Grimaldo Arredondo Martinez',
+            'email' => 'grimaldo@gmail.com',
+            'password'=> bcrypt(12345678)
+        ]);
+
+        User::factory()->create([
+            'name' => 'Nikol Sarai Terrazas ',
+            'email' => 'nikol@gmail.com',
+            'password'=> bcrypt(12345678)
+        ]);
     }
 }
