@@ -22,7 +22,8 @@ class ProductFactory extends Factory
             'name'=> $this->faker -> name(),
             'description'=> $this->faker ->text(20),
             'price'=> $this->faker -> randomFloat( $nbMaxDecimals = 2, $min = 30, $max = 500),
-            'stock'=> $this ->faker -> numberBetween($min = 1, $max = 50) ,
+            'stock'=> $this ->faker -> numberBetween($min = 10, $max = 50) ,
+            'discount'=>$this->faker->numberBetween(5,40),
             'category_id'=> Category::all()->random()-> id,
             //'size_id'=> Size::all()->random()-> id,
 
