@@ -14,12 +14,11 @@
     <div class="my-2 md:mr-2 md:mb-0 w-full">
         <x-input wire:model="form.stock" label="cantidad" />
     </div>
-    {{-- <div class="my-2 md:mr-2 md:mb-0 w-full">
-        <x-native-select label="Cargo" placeholder="Seleccione una opción"
-            :options="['Jugador','Comando técnico','Staff']"
-            wire:model="form.type"
-        />
-    </div> --}}
+
+    <div class="my-2 md:mr-2 md:mb-0 w-full">
+        <x-input type="hidden" wire:model="form.discount" value="0" />
+    </div>
+
 
     <div class="my-2 md:mr-2 md:mb-0 w-full">
         <x-native-select label="Selecciona la categoria" wire:model.live="form.category_id">
