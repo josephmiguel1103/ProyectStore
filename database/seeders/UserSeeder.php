@@ -24,5 +24,7 @@ class UserSeeder extends Seeder
             'email'=>'harry.ascuna@upeu.edu.pe',
             'password'=>bcrypt('12345678')
         ]);
+
+
     }
 }
