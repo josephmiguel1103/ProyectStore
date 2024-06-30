@@ -9,11 +9,11 @@ use App\Models\Product;
 use App\Models\Size;
 use Livewire\Component;
 use Livewire\WithPagination;
-use WireUi\Traits\Actions;
+//use WireUi\Traits\Actions;
 
 class ProductMain extends Component{
     use WithPagination;
-    use Actions;
+    //use Actions;
     public $isOpen=false;
     public $position_id;
     public ?Product $Product;

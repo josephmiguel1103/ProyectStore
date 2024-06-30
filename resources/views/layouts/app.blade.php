@@ -40,4 +40,3 @@
         @stack('js')
     </body>
 </html>
-

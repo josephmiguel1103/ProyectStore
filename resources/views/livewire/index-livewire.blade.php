@@ -13,7 +13,7 @@
                 </div>
                 <!-- Item 3 -->
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="img/car2.jpeg" class="block w-full h-full object-cover" alt="...">
+                    <img src="img/car1.jpg" class="block w-full h-full object-cover" alt="...">
                 </div>
             </div>
             <!-- Slider indicators -->
@@ -97,6 +97,7 @@
                     <p class="text-zinc-700 dark:text-zinc-300">{{ $product->description }}</p>
                     <p class="text-red-500 line-through">{{ $product->price }}</p>
                     <p class="text-purple-500">$984.00</p>
+                    <button wire:click="$emit('addToCart', {{ $product->id }})" class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-purple-600 px-8 py-3 text-base font-medium text-white hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2">Agregar al Carrito</button>
                 </div>
             @endforeach
 
@@ -111,40 +112,88 @@
 
 
     {{-- Categorias --}}
-    <div class="container mx-auto py-8">
+    <div class="container mx-auto py-8 text-white">
+        <h2 class="text-2xl font-bold text-center mb-6 dark:text-white">Elije tu Categoria</h2>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-            @foreach ($categories as $category)
-                <div class="flex flex-col items-center">
-                    <div class="w-24 h-24 rounded-full bg-zinc-200 flex items-center justify-center">
-                        <img src="{{ Storage::url($category->image->url) }}" alt="" class="rounded-full">
+            <div class="flex flex-col items-center">
+                <a href="{{ url('computadoras') }}" class="flex flex-col items-center">
+                    <div class="w-24 h-24 rounded-full bg-zinc-200 flex items-center justify-center border-4 border-transparent hover:border-yellow-500">
+                        <img src="img/2.jpg" alt="T.V. y cine en casa" class="rounded-full transition-opacity duration-100 hover:opacity-85" />
                     </div>
-                    <p class="mt-2 text-center text-white">{{ $category->name }}</p>
-                </div>
-            @endforeach
-
-            <div class="flex flex-col items-center">
-                <div class="w-24 h-24 rounded-full bg-zinc-200 flex items-center justify-center">
-                    <img src="img/4.jpg" alt="T.V. y cine en casa" class="rounded-full" />
-                </div>
-                <p class="mt-2 text-center text-white">T.V. y cine en casa</p>
+                    <p class="mt-2 text-center text-white hover:text-yellow-500">Computadoras</p>
+                </a>
             </div>
             <div class="flex flex-col items-center">
-                <div class="w-24 h-24 rounded-full bg-zinc-200 flex items-center justify-center">
-                    <img src="img/2.jpg" alt="Tecnología portátil" class="rounded-full" />
-                </div>
-                <p class="mt-2 text-center text-white">Tecnología portátil</p>
+                <a href="{{ url('celulares') }}" class="flex flex-col items-center">
+                    <div class="w-24 h-24 rounded-full bg-zinc-200 flex items-center justify-center border-4 border-transparent hover:border-yellow-500">
+                        <img src="img/4.jpg" alt="T.V. y cine en casa" class="rounded-full transition-opacity duration-100 hover:opacity-85" />
+                    </div>
+                    <p class="mt-2 text-center text-white hover:text-yellow-500">Celulares</p>
+                </a>
             </div>
             <div class="flex flex-col items-center">
-                <div class="w-24 h-24 rounded-full bg-zinc-200 flex items-center justify-center">
-                    <img src="img/5.jpg" alt="Bocinas" class="rounded-full" />
-                </div>
-                <p class="mt-2 text-center text-white">Bocinas</p>
+                <a href="{{ url('drones_camaras') }}" class="flex flex-col items-center">
+                    <div class="w-24 h-24 rounded-full bg-zinc-200 flex items-center justify-center border-4 border-transparent hover:border-yellow-500">
+                        <img src="img/4.jpg" alt="T.V. y cine en casa" class="rounded-full transition-opacity duration-100 hover:opacity-85" />
+                    </div>
+                    <p class="mt-2 text-center text-white hover:text-yellow-500">Drones y Camaras</p>
+                </a>
             </div>
             <div class="flex flex-col items-center">
-                <div class="w-24 h-24 rounded-full bg-zinc-200 flex items-center justify-center">
-                    <img src="img/6.jpg" alt="Audífonos" class="rounded-full" />
-                </div>
-                <p class="mt-2 text-center text-white">Audífonos</p>
+                <a href="{{ url('ofertas') }}" class="flex flex-col items-center">
+                    <div class="w-24 h-24 rounded-full bg-zinc-200 flex items-center justify-center border-4 border-transparent hover:border-yellow-500">
+                        <img src="img/4.jpg" alt="T.V. y cine en casa" class="rounded-full transition-opacity duration-100 hover:opacity-85" />
+                    </div>
+                    <p class="mt-2 text-center text-white hover:text-yellow-500">Oferta</p>
+                </a>
+            </div>
+            <div class="flex flex-col items-center">
+                <a href="{{ url('tabletas') }}" class="flex flex-col items-center">
+                    <div class="w-24 h-24 rounded-full bg-zinc-200 flex items-center justify-center border-4 border-transparent hover:border-yellow-500">
+                        <img src="img/4.jpg" alt="T.V. y cine en casa" class="rounded-full transition-opacity duration-100 hover:opacity-85" />
+                    </div>
+                    <p class="mt-2 text-center text-white hover:text-yellow-500">Tabletas</p>
+                </a>
+            </div>
+            <div class="flex flex-col items-center">
+                <a href="{{ url('tvcine') }}" class="flex flex-col items-center">
+                    <div class="w-24 h-24 rounded-full bg-zinc-200 flex items-center justify-center border-4 border-transparent hover:border-yellow-500">
+                        <img src="img/4.jpg" alt="T.V. y cine en casa" class="rounded-full transition-opacity duration-100 hover:opacity-85" />
+                    </div>
+                    <p class="mt-2 text-center text-white hover:text-yellow-500">T.V. y cine en casa</p>
+                </a>
+            </div>
+            <div class="flex flex-col items-center">
+                <a href="{{ url('portatiles') }}" class="flex flex-col items-center">
+                    <div class="w-24 h-24 rounded-full bg-zinc-200 flex items-center justify-center border-4 border-transparent hover:border-yellow-500">
+                        <img src="img/4.jpg" alt="T.V. y cine en casa" class="rounded-full transition-opacity duration-100 hover:opacity-85" />
+                    </div>
+                    <p class="mt-2 text-center text-white hover:text-yellow-500">Tecnología Portatil</p>
+                </a>
+            </div>
+            <div class="flex flex-col items-center">
+                <a href="{{ url('audio') }}" class="flex flex-col items-center">
+                    <div class="w-24 h-24 rounded-full bg-zinc-200 flex items-center justify-center border-4 border-transparent hover:border-yellow-500">
+                        <img src="img/4.jpg" alt="T.V. y cine en casa" class="rounded-full transition-opacity duration-100 hover:opacity-85" />
+                    </div>
+                    <p class="mt-2 text-center text-white hover:text-yellow-500">Bocinas</p>
+                </a>
+            </div>
+            <div class="flex flex-col items-center">
+                <a href="{{ url('audifonos') }}" class="flex flex-col items-center">
+                    <div class="w-24 h-24 rounded-full bg-zinc-200 flex items-center justify-center border-4 border-transparent hover:border-yellow-500">
+                        <img src="img/6.jpg" alt="T.V. y cine en casa" class="rounded-full transition-opacity duration-100 hover:opacity-85" />
+                    </div>
+                    <p class="mt-2 text-center text-white hover:text-yellow-500">Audifonos</p>
+                </a>
+            </div>
+            <div class="flex flex-col items-center">
+                <a href="{{ url('accesorios') }}" class="flex flex-col items-center">
+                    <div class="w-24 h-24 rounded-full bg-zinc-200 flex items-center justify-center border-4 border-transparent hover:border-yellow-500">
+                        <img src="img/4.jpg" alt="T.V. y cine en casa" class="rounded-full transition-opacity duration-100 hover:opacity-85" />
+                    </div>
+                    <p class="mt-2 text-center text-white hover:text-yellow-500">Accesorios</p>
+                </a>
             </div>
         </div>
     </div>
@@ -163,67 +212,5 @@
         </div>
     </div>
 
-    {{-- Footer --}}
-    <footer
-        class="bg-zinc-100 dark:bg-zinc-800 text-white dark:text-zinc-300 p-8 bg-gradient-to-br from-purple-900 to-purple-800">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-                <h3 class="font-semibold mb-4">Ubicación de tienda</h3>
-                <p>Av. Fray A. Alcalde 10<br />44100, Guada., Jal., México</p>
-                <p>info@mistio.com<br />+52-1-33-12345678</p>
-                <div class="flex space-x-4 mt-4">
-                    <a href="#"><img src="https://placehold.co/20x20" alt="Facebook" /></a>
-                    <a href="#"><img src="https://placehold.co/20x20" alt="Instagram" /></a>
-                    <a href="#"><img src="https://placehold.co/20x20" alt="Twitter" /></a>
-                    <a href="#"><img src="https://placehold.co/20x20" alt="YouTube" /></a>
-                </div>
-            </div>
-            <div>
-                <h3 class="font-semibold mb-4">Tienda</h3>
-                <ul>
-                    <li><a href="#" class="hover:underline">Comprar todo</a></li>
-                    <li><a href="#" class="hover:underline">Computadoras</a></li>
-                    <li><a href="#" class="hover:underline">Tabletas</a></li>
-                    <li><a href="#" class="hover:underline">Drones y cámaras</a></li>
-                    <li><a href="#" class="hover:underline">Audio</a></li>
-                    <li><a href="#" class="hover:underline">Celulares</a></li>
-                    <li><a href="#" class="hover:underline">T.V. y cine en casa</a></li>
-                    <li><a href="#" class="hover:underline">Tecnología portátil</a></li>
-                    <li><a href="#" class="hover:underline">Oferta</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="font-semibold mb-4">Atención al cliente</h3>
-                <ul>
-                    <li><a href="#" class="hover:underline">Contáctanos</a></li>
-                    <li><a href="#" class="hover:underline">Asistencia</a></li>
-                    <li><a href="#" class="hover:underline">Acerca de</a></li>
-                    <li><a href="#" class="hover:underline">Empleos</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="font-semibold mb-4">Política</h3>
-                <ul>
-                    <li><a href="#" class="hover:underline">Envío y devoluciones</a></li>
-                    <li><a href="#" class="hover:underline">Términos y condiciones</a></li>
-                    <li><a href="#" class="hover:underline">Métodos de pago</a></li>
-                    <li><a href="#" class="hover:underline">FAQ</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="border-t border-zinc-300 dark:border-zinc-700 mt-8 pt-8 text-center">
-            <p class="mb-4">Aceptamos los siguientes métodos de pago</p>
-            <div class="flex justify-center space-x-4 mb-4">
-                <img src="https://placehold.co/40x20" alt="Visa" />
-                <img src="https://placehold.co/40x20" alt="Mastercard" />
-                <img src="https://placehold.co/40x20" alt="American Express" />
-                <img src="https://placehold.co/40x20" alt="Discover" />
-                <img src="https://placehold.co/40x20" alt="PayPal" />
-            </div>
-            <p class="text-sm">
-                &copy; 2035 Creado por NovoTec con
-                <a href="https://wix.com" class="hover:underline">Wix.com</a>
-            </p>
-        </div>
-    </footer>
+
 </x-index-layout>

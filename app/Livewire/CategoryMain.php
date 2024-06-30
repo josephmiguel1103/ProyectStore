@@ -10,14 +10,14 @@ use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
-use WireUi\Traits\Actions;
+//use WireUi\Traits\Actions;
 
 class CategoryMain extends Component
 
 {
     use WithFileUploads;
     use WithPagination;
-    use Actions;
+    //use Actions;
     public $isOpen = false;
     public ?Category $category;
     public CategoryForm $form;
