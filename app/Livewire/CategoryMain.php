@@ -35,7 +35,6 @@ class CategoryMain extends Component
     {
         $this->isOpen = true;
         $this->form->reset();
-
         $this->reset(['category', 'foto']);
         $this->resetValidation();
         //$this->form->mount($this->supplier_id);

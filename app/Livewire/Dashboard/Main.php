@@ -16,19 +16,19 @@ class Main extends Component
 
     }
 
-    public function render()
-    {
-       $products=Product::all()->count();
+public function render()
+{
+    $products = Product::latest()->paginate(3); // Ajusta el número según tus necesidades
+    $totalProducts = Product::count();
 
-    $categories = Category::all();
-    $productCounts = [];
-
-    foreach ($categories as $category) {
-        $productCounts[] = [
+    $categories = Category::withCount('products')->get();
+    $productCounts = $categories->map(function ($category) {
+        return [
             'category' => $category->name,
-            'count' => $category->products()->count()
+            'count' => $category->products_count
         ];
-    }
-        return view('livewire.dashboard.main',compact('products','productCounts'));
-    }
+    });
+
+    return view('livewire.dashboard.main', compact('products', 'totalProducts', 'productCounts'));
+}
 }
