@@ -9,5 +9,5 @@ use Livewire\Form;
 class ProductForm extends Form
 {
     #[Rule('required')]
-    public $name,$description,$price,$stock,$size_id,$discount,$category_id;
+    public $name,$description,$price,$stock,$discount=0 ,$category_id;
 }

@@ -8,6 +8,6 @@ class CategoryCreate extends Component
 {
     public function render()
     {
-        return view('livewire.category.category-create');
+        return view('livewire.category.Category-create');
     }
 }

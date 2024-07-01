@@ -20,10 +20,7 @@
                     @endforeach
                 </x-native-select>
             </div>
-            <x-button wire:click="create()" spinner="create" icon="plus" primary label="Nuevo" />
-            @if ($isOpen)
-                @include('livewire.product.product-create')
-            @endif
+
         </div>
         <div class="flex flex-col mt-8">
 

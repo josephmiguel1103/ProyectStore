@@ -3,9 +3,7 @@
 namespace App\Livewire;
 
 use App\Livewire\Forms\CategoryForm;
-use App\Livewire\Forms\ImageForm;
 use App\Models\Category;
-use App\Models\Image;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -37,8 +35,7 @@ class CategoryMain extends Component
     {
         $this->isOpen = true;
         $this->form->reset();
-
-        $this->reset(['Category', 'foto']);
+        $this->reset(['category', 'foto']);
         $this->resetValidation();
         //$this->form->mount($this->supplier_id);
     }
@@ -91,9 +88,11 @@ class CategoryMain extends Component
 
     public function destroy(Category $category)
     {
+        if ($category->image) {
+            Storage::delete($category->image->url);
+            $category->image()->delete();
+        }
         $category->delete();
-        Storage::delete($category->image->url);
-        $category->image()->delete();
     }
 
     public function updatingSearch()
