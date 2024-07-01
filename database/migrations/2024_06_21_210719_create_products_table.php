@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('description');
             $table->float('price');
             $table->integer('stock');
+            $table->integer('discount')->default(0);
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on ('categories')-> onDelete('cascade');
 

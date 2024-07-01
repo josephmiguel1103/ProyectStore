@@ -73,6 +73,7 @@ class productSeeder extends Seeder
                 'description' => $productData['description'],
                 'price' => $faker->randomFloat(2, 10, 1000), // Generado por Faker
                 'stock' => $faker->numberBetween(1, 100), // Generado por Faker
+                'discount' => $faker->numberBetween(0,40),
                 'category_id' => $productData['category_id'], // Asignación aleatoria de categorías existentes
             ]);
 

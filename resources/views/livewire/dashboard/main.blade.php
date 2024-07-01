@@ -30,8 +30,8 @@
                     </div>
 
                     <div class="mx-5">
-                        <h4 class="text-2xl font-semibold text-gray-700">1245</h4>
-                        <div class="text-gray-500">Proveedores</div>
+                        <h4 class="text-2xl font-semibold text-gray-700">{{$products}}</h4>
+                        <div class="text-gray-500">Productos</div>
                     </div>
                 </div>
             </div>
