@@ -5,6 +5,7 @@ namespace App\Livewire\Product;
 use App\Livewire\Forms\ProductForm;
 use App\Models\Category;
 use App\Models\Product;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Livewire\Component;
 use Livewire\WithPagination;
 use WireUi\Traits\Actions;
@@ -96,4 +97,13 @@ class InventarioMain extends Component
 
         return number_format($discountedPrice, 2);
     }
+
+    public function reportePDF(){
+        $products= Product::all();
+        $pdf = Pdf::loadView('reports.Productpdf',compact('products'));
+       // return $pdf->download('reporteProducto.pdf');
+       return $pdf ->stream();
+    }
+
+
 }

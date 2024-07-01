@@ -26,10 +26,7 @@ export default {
         },
     },
 
-<<<<<<< HEAD
-    plugins: [forms, typography],
-};
-=======
+
     plugins: [
         require('flowbite/plugin')({
             charts: true,
@@ -37,4 +34,4 @@ export default {
         forms, typography
     ],
 };
->>>>>>> back
+

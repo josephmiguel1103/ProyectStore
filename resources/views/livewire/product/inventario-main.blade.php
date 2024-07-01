@@ -6,9 +6,8 @@
                 <span class="text-base font-normal text-gray-500">Actualizar el stock de los productos</span>
             </div>
             <div class="flex-shrink-0">
-                <a href="#"
-                    class="text-sm font-medium text-orange-600 hover:bg-gray-100 rounded-lg p-2">Imprimir</a>
-            </div>
+                <x-button href="{{ route('Productpdf') }}" icon="document" target="_blank" label="PDF" gray />
+         </div>
         </div>
         <div class="flex item-center justify-between gap-4 mb-2">
             <div class="flex gap-5">

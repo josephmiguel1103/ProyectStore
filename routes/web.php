@@ -26,6 +26,7 @@ Route::middleware([
     Route::get('/inventario',InventarioMain::class)->name('inventario');
     Route::get('/ventas',VentasMain::class)->name('ventas');
     //Route::get('/boletapdf',[VentasMain::class,'generarpdf'])->name('boletapdf');
+    Route::get('/Productpdf',[InventarioMain::class,'reportePDF'])->name('Productpdf');
 });
 
 Route::get('/',[IndexLivewire::class,'render'])->name('index');

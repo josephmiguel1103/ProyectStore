@@ -44,7 +44,7 @@
                         </div>
                         <div class="w-full flex flex-col">
                             <div class="p-4 pb-0 flex-1">
-                                <h3 class="font-light mb-1 text-grey-darkest text-3xl">{{ $item->name }}</h3>
+                                <h3 class="font-light mb-1 text-grey-darkest text-2xl">{{ $item->name }}</h3>
                                 <div class="text-xs flex items-center mb-4">
                                     <i class="fas fa-wallet mr-1 text-grey-dark"></i>
                                     {{ $item->category->name }}

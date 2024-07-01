@@ -13,22 +13,28 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory()->create([
+        $user = User::factory()->create([
             'name' => 'Jose Migue Condo Huamani',
             'email' => 'miguel@gmail.com',
-            'password'=> bcrypt(12345678)
+            'password' => bcrypt(12345678)
+        ]);
+        $user->assignRole('Administrador');
+        $users = User::factory(5)->create();
+        foreach ($users as $item) {
+            $item->assignRole('Usuario');
+        }
+
+
+        User::create([
+            'name' => 'Harry Jack Ascuña Mamani',
+            'email' => 'harry.ascuna@upeu.edu.pe',
+            'password' => bcrypt('12345678')
         ]);
 
         User::create([
-            'name'=>'Harry Jack Ascuña Mamani',
-            'email'=>'harry.ascuna@upeu.edu.pe',
-            'password'=>bcrypt('12345678')
-        ]);
-
-        User::create([
-            'name'=>'Grimaldo Arrdondo Martinez',
-            'email'=>'grimaldo@gmail.com',
-            'password'=>bcrypt('12345678')
+            'name' => 'Grimaldo Arrdondo Martinez',
+            'email' => 'grimaldo@gmail.com',
+            'password' => bcrypt('12345678')
         ]);
     }
 }
