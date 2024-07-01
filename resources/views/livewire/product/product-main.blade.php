@@ -61,7 +61,7 @@
                                 </div>
                             </div>
                             <div>
-                                <ul class="px-6 py-4 text-right">
+                                <ul class="px-6 py-2 text-right">
                                     <x-button.circle wire:click="edit({{ $item }})" primary icon="pencil" />
                                     <x-button.circle negative icon="x"
                                         x-on:confirm="{

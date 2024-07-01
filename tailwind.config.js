@@ -14,7 +14,8 @@ export default {
         './resources/views/**/*.blade.php',
         './vendor/wireui/wireui/resources/**/*.blade.php',
         './vendor/wireui/wireui/ts/**/*.ts',
-        './vendor/wireui/wireui/src/View/**/*.php'
+        './vendor/wireui/wireui/src/View/**/*.php',
+          "./node_modules/flowbite/**/*.js"
     ],
 
     theme: {
@@ -25,5 +26,15 @@ export default {
         },
     },
 
+<<<<<<< HEAD
     plugins: [forms, typography],
 };
+=======
+    plugins: [
+        require('flowbite/plugin')({
+            charts: true,
+        }),
+        forms, typography
+    ],
+};
+>>>>>>> back
