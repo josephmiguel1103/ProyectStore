@@ -37,7 +37,7 @@
         @livewire('navigation')
     </div>
     <div
-        class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 selection:bg-red-500 selection:text-white">
+        class="relative sm:flex sm:justify-center sm:items-center  bg-dots-darker bg-center bg-gray-100 selection:bg-red-500 selection:text-white">
         <div class="shadow-black  overflow-x-hidden overflow-y-auto bg-zinc-800">
             {{-- <div class="max-w-7xl mx-auto p-6 lg:p-8"> --}}
             <main>

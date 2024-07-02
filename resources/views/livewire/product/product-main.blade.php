@@ -25,6 +25,7 @@
 
         <div class="bg-gray-100 shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
 
+
             <!--Tabla lista de products   -->
 
             <ul class="grid grid-cols-1 xl:grid-cols-3 gap-y-10 gap-4 items-start p-8">
@@ -33,7 +34,7 @@
 
                         <div class="relative w-1/2  rounded-l-sm">
                             @if ($item->image && $item->image->exists())
-                                <img src="{{ Storage::url($item->image->url) }}"  class="w-full h-full rounded-l-sm">
+                                <img src="{{ Storage::url($item->image->url) }}" class="w-full h-full rounded-l-sm">
                             @else
                                 <p>Sin imagen</p>
                             @endif

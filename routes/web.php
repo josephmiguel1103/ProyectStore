@@ -6,6 +6,7 @@ use App\Livewire\IndexLivewire;
 use App\Livewire\Product\InventarioMain;
 use App\Livewire\ProductMain;
 use App\Livewire\Reporte\BoletaMain;
+use App\Livewire\TiendaMain;
 use App\Livewire\Ventas\VentasMain;
 use Illuminate\Support\Facades\Route;
 
@@ -30,3 +31,4 @@ Route::middleware([
 });
 
 Route::get('/',[IndexLivewire::class,'render'])->name('index');
+Route::get('/tienda',[TiendaMain::class,'render'])->name('tienda');
